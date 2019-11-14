@@ -1,11 +1,33 @@
 # Mount Windows Shares
+
 Mount Windows Shared Folder easily to your Linux by using CIFS
+
+## Changes
+
+    14.11.2019: Added mount_shares.sh, the best version.
 
 ## Requirements
 
     sudo apt-get install cifs-utils
 
+## Script: **mount_shares_sh**
+
+This is the best script when all shared folders are predefined.
+
+Open script and manually edit parameters to match your configuration. Give your windows computer name and user. The most of cases domain does not require any changes. Then add into `shares` array all the shareable folders. Keys are Windows folders and values are path to Linux. The best thing about this is, it only asks passwords once (win+sudo).
+
+    compname='Windows-Laptop'
+    winuser='ezmo'
+    domain='WORKGROUP,vers=2.0'
+
+    shares['scripts']='/home/ezmodus/scripts'
+    shares['projects/websites']='/var/www'
+    shares['images']='/home/ezmodus/images'
+    shares['videos']='/home/ezmodus/videos'
+    shares['projects/code-repositories']='/home/ezmodus/repos'
+
 ## Script: **mount_single_folder.sh**
+
 Use this script when you have predefined parameters for single specific Windows shared folder.
 
 Open script and manually edit parameters to match  your configuration
